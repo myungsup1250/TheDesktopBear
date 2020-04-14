@@ -1,0 +1,9 @@
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csprojAssemblyReference.cache
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.Bear.resources
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.Properties.Resources.resources
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.GenerateResource.cache
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.exe.config
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.exe
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.pdb
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.exe
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.pdb
