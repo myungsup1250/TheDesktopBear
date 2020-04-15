@@ -40,6 +40,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.name = new System.Windows.Forms.Label();
             this.ExitTimeDisplay = new System.Windows.Forms.TextBox();
+            this.NewBearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Character)).BeginInit();
             this.TaskList.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +75,7 @@
             this.파일전송하기SToolStripMenuItem.Name = "파일전송하기SToolStripMenuItem";
             this.파일전송하기SToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
             this.파일전송하기SToolStripMenuItem.Text = "파일 전송하기(&F)";
+            this.파일전송하기SToolStripMenuItem.Click += new System.EventHandler(this.파일전송하기SToolStripMenuItem_Click);
             // 
             // 프로세스죽이기KToolStripMenuItem
             // 
@@ -115,25 +117,37 @@
             this.ExitTimeDisplay.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.ExitTimeDisplay.Location = new System.Drawing.Point(98, 102);
             this.ExitTimeDisplay.Name = "ExitTimeDisplay";
-            this.ExitTimeDisplay.Size = new System.Drawing.Size(35, 25);
+            this.ExitTimeDisplay.Size = new System.Drawing.Size(30, 25);
             this.ExitTimeDisplay.TabIndex = 2;
             this.ExitTimeDisplay.Text = "0";
             this.ExitTimeDisplay.Visible = false;
             this.ExitTimeDisplay.TextChanged += new System.EventHandler(this.ExitTimeDisplay_TextChanged);
+            // 
+            // NewBearBtn
+            // 
+            this.NewBearBtn.Location = new System.Drawing.Point(98, 12);
+            this.NewBearBtn.Name = "NewBearBtn";
+            this.NewBearBtn.Size = new System.Drawing.Size(41, 39);
+            this.NewBearBtn.TabIndex = 3;
+            this.NewBearBtn.Text = "N";
+            this.NewBearBtn.UseVisualStyleBackColor = true;
+            this.NewBearBtn.Click += new System.EventHandler(this.NewBearBtn_Click);
             // 
             // Bear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(268, 139);
+            this.ClientSize = new System.Drawing.Size(160, 148);
+            this.Controls.Add(this.NewBearBtn);
             this.Controls.Add(this.ExitTimeDisplay);
             this.Controls.Add(this.name);
             this.Controls.Add(this.Character);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Bear";
-            this.Opacity = 0.9D;
+            this.Opacity = 0.85D;
             this.Text = "TheDesktopBear";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.SystemColors.HotTrack;
@@ -159,6 +173,7 @@
         private System.Windows.Forms.ToolStripMenuItem 멈추기SToolStripMenuItem;
         private System.Windows.Forms.Label name;
         private System.Windows.Forms.TextBox ExitTimeDisplay;
+        private System.Windows.Forms.Button NewBearBtn;
     }
 }
 

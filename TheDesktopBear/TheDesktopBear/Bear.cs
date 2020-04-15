@@ -21,7 +21,6 @@ namespace TheDesktopBear
         private int move_num = -1; //이미지갱신을 위한 tick
         private int dir = (int)BearMove.FRONT; //방향
 
-
         public Bear()
         {
             InitializeComponent();
@@ -156,6 +155,12 @@ namespace TheDesktopBear
                 this.WindowState = FormWindowState.Minimized;
             }
         }
+        void Howling()
+        {
+            SoundPlayer wp = new SoundPlayer("../../resource/sound/growl.wav");
+            wp.PlaySync();
+        }
+
         private void CharacterKeyPress(object sender, KeyPressEventArgs e)
         {
             switch (e.KeyChar)
@@ -168,7 +173,6 @@ namespace TheDesktopBear
                     break;
             }
         }
-
         private void CharacterKeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -179,7 +183,6 @@ namespace TheDesktopBear
                 ExitTimer.Dispose();
             }
         }
-
         private void ExitTimeDisplay_TextChanged(object sender, EventArgs e)
         {
             if (ExitTimeDisplay.Text.Equals("10"))
@@ -188,18 +191,21 @@ namespace TheDesktopBear
             }
 
         }
-
-        void Howling()
-        {
-            SoundPlayer wp = new SoundPlayer("../../sound/16478.wav");
-            wp.PlaySync();
-        }
-
         #endregion
 
-        private void 멈추기SToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 멈추기SToolStripMenuItem_Click(object sender, EventArgs e)    { dir = 4;}
+
+        private void NewBearBtn_Click(object sender, EventArgs e)
         {
-            dir = 4;
+            Bear f = new Bear();
+            f.Show();
+        }
+
+        private void 파일전송하기SToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //해당 User에게 수락/거절 메세지 보내기
+            //수락시 파일전송창 띄워주기
+            MessageBox.Show("파일을 전송하겠습니까");
         }
     }
 }

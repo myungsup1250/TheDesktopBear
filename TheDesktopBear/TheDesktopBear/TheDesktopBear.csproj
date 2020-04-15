@@ -52,10 +52,19 @@
     <Compile Include="Bear.Designer.cs">
       <DependentUpon>Bear.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileSender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileSender.Designer.cs">
+      <DependentUpon>FileSender.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Bear.resx">
       <DependentUpon>Bear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileSender.resx">
+      <DependentUpon>FileSender.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
