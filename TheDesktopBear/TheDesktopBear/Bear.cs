@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,15 +52,6 @@ namespace TheDesktopBear
         #endregion
 
         #region 파일 드래그앤 드롭
-        private Form isFormAlreadyOpen(Type FormType)
-        {
-            foreach(Form OpenForm in Application.OpenForms)
-            {
-                if (OpenForm.GetType() == FormType)
-                    return OpenForm;
-            }
-            return null;
-        }
         void Form1_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
@@ -68,22 +59,7 @@ namespace TheDesktopBear
 
         void Form1_DragDrop(object sender, DragEventArgs e)
         {
-            Form fs = Application.OpenForms["FileSender"];
-            if (isFormAlreadyOpen(typeof(FileSender)) == null){
-                fs = new FileSender();
-                fs.Parent = this;
-                fs.Show();
-            }
-            else
-            {
-                fs.BringToFront();
-                fs.Activate();
-            }
-
-            //만약 FileSender가 열려있다면 - 파일Sender한테 파일넘겨주기
-
-            //아니라면 파일을 먹는 모션(?)
-
+            //여기에 통신부분들어가면 좋을 것 같음
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             foreach (string file in files)
             {
@@ -99,28 +75,29 @@ namespace TheDesktopBear
             Image[,] images = new Image[4, 4];
             int speed = 8;
             #region Front Image
-            images[0, 0] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Front1.png");
-            images[0, 1] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Front2.png");
-            images[0, 2] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Front3.png");
-            images[0, 3] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Front4.png");
+
+            images[0, 0] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Front1.png");
+            images[0, 1] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Front2.png");
+            images[0, 2] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Front3.png");
+            images[0, 3] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Front4.png");
             #endregion
             #region Right Image
-            images[1, 0] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Right1.png");
-            images[1, 1] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Right2.png");
-            images[1, 2] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Right3.png");
-            images[1, 3] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Right4.png");
+            images[1, 0] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Right1.png");
+            images[1, 1] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Right2.png");
+            images[1, 2] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Right3.png");
+            images[1, 3] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Right4.png");
             #endregion
             #region Back Image
-            images[2, 0] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Back1.png");
-            images[2, 1] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Back2.png");
-            images[2, 2] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Back3.png");
-            images[2, 3] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Back4.png");
+            images[2, 0] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Back1.png");
+            images[2, 1] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Back2.png");
+            images[2, 2] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Back3.png");
+            images[2, 3] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Back4.png");
             #endregion
             #region Left Image
-            images[3, 0] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Left1.png");
-            images[3, 1] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Left2.png");
-            images[3, 2] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Left3.png");
-            images[3, 3] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Left4.png");
+            images[3, 0] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Left1.png");
+            images[3, 1] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Left2.png");
+            images[3, 2] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Left3.png");
+            images[3, 3] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Left4.png");
             #endregion
             move_num++; move_num %= 4;
 
@@ -217,7 +194,6 @@ namespace TheDesktopBear
         }
         #endregion
 
-        #region 임시
         private void 멈추기SToolStripMenuItem_Click(object sender, EventArgs e)    { dir = 4;}
 
         private void NewBearBtn_Click(object sender, EventArgs e)
@@ -230,10 +206,7 @@ namespace TheDesktopBear
         {
             //해당 User에게 수락/거절 메세지 보내기
             //수락시 파일전송창 띄워주기
-            FileSender filesender = new FileSender();
-            filesender.Show();
-            
+            MessageBox.Show("파일을 전송하겠습니까");
         }
-        #endregion
     }
 }
