@@ -75,28 +75,29 @@ namespace TheDesktopBear
             Image[,] images = new Image[4, 4];
             int speed = 8;
             #region Front Image
-            images[0, 0] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Front1.png");
-            images[0, 1] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Front2.png");
-            images[0, 2] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Front3.png");
-            images[0, 3] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Front4.png");
+
+            images[0, 0] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Front1.png");
+            images[0, 1] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Front2.png");
+            images[0, 2] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Front3.png");
+            images[0, 3] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Front4.png");
             #endregion
             #region Right Image
-            images[1, 0] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Right1.png");
-            images[1, 1] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Right2.png");
-            images[1, 2] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Right3.png");
-            images[1, 3] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Right4.png");
+            images[1, 0] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Right1.png");
+            images[1, 1] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Right2.png");
+            images[1, 2] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Right3.png");
+            images[1, 3] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Right4.png");
             #endregion
             #region Back Image
-            images[2, 0] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Back1.png");
-            images[2, 1] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Back2.png");
-            images[2, 2] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Back3.png");
-            images[2, 3] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Back4.png");
+            images[2, 0] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Back1.png");
+            images[2, 1] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Back2.png");
+            images[2, 2] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Back3.png");
+            images[2, 3] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Back4.png");
             #endregion
             #region Left Image
-            images[3, 0] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Left1.png");
-            images[3, 1] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Left2.png");
-            images[3, 2] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Left3.png");
-            images[3, 3] = Image.FromFile("C:\\Users\\souvenir\\Desktop\\sprite\\Left4.png");
+            images[3, 0] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Left1.png");
+            images[3, 1] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Left2.png");
+            images[3, 2] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Left3.png");
+            images[3, 3] = Image.FromFile(Application.StartupPath + "\\..\\..\\resource\\img\\Left4.png");
             #endregion
             move_num++; move_num %= 4;
 
