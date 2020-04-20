@@ -7,3 +7,4 @@ C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\bin
 C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.pdb
 C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.exe
 C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.pdb
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.FileSender.resources
