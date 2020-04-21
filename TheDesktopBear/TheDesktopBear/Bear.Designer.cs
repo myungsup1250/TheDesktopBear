@@ -144,6 +144,7 @@
             this.마우스따라가기MToolStripMenuItem.Name = "마우스따라가기MToolStripMenuItem";
             this.마우스따라가기MToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.마우스따라가기MToolStripMenuItem.Text = "마우스 따라가기(&M)";
+            this.마우스따라가기MToolStripMenuItem.Click += new System.EventHandler(this.마우스따라가기MToolStripMenuItem_Click);
             // 
             // Bear
             // 

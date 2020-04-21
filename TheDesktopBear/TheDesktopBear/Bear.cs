@@ -15,9 +15,11 @@ namespace TheDesktopBear
 
     public partial class Bear : Form
     {
+
         private Point mousePoint;
         Image[,] images = new Image[4, 4];
         int speed = 8;
+        bool mouse_control = false;
 
         enum BearMove { FRONT, RIGHT, BACK, LEFT, STAND };
 
@@ -133,6 +135,10 @@ namespace TheDesktopBear
             move_num++; move_num %= 4;
 
             Moving(dir, move_num);
+            if (mouse_control)
+            {
+                Cursor.Position = new Point(this.Location.X + 45, this.Location.Y + 79);
+            }
         }
         #endregion
 
@@ -210,6 +216,11 @@ namespace TheDesktopBear
         private void 프로세스죽이기KToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void 마우스따라가기MToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mouse_control = !mouse_control;
         }
     }
 }
