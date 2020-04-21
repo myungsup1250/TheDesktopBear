@@ -101,46 +101,38 @@ namespace TheDesktopBear
         #endregion
 
         #region 움직임
+        private void Moving(int direction, int idx)
+        {
+            switch (direction)
+            {
+                case (int)BearMove.FRONT:
+                    Location = new Point(this.Location.X, this.Location.Y + speed);
+                    Character.Image = images[dir, idx];
+                    break;
+                case (int)BearMove.RIGHT:
+                    Location = new Point(this.Location.X + speed, this.Location.Y);
+                    Character.Image = images[dir, idx];
+                    break;
+                case (int)BearMove.BACK:
+                    Location = new Point(this.Location.X, this.Location.Y - speed);
+                    Character.Image = images[dir, idx];
+                    break;
+                case (int)BearMove.LEFT:
+                    Location = new Point(this.Location.X - speed, this.Location.Y - speed);
+                    Character.Image = images[dir, idx];
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void MoveTimer_Tick(object sender, EventArgs e)
         {
             Image now = Character.Image;
 
             move_num++; move_num %= 4;
 
-            switch (dir)
-            {
-                case (int)BearMove.FRONT:
-                    Location = new Point(this.Location.X, this.Location.Y + speed);
-                    break;
-                case (int)BearMove.RIGHT:
-                    Location = new Point(this.Location.X + speed, this.Location.Y);
-                    break;
-                case (int)BearMove.BACK:
-                    Location = new Point(this.Location.X, this.Location.Y - speed);
-                    break;
-                case (int)BearMove.LEFT:
-                    Location = new Point(this.Location.X - speed, this.Location.Y - speed);
-                    break;
-                default:
-                    break;
-
-            }
-            if (dir > 3) return;
-            switch (move_num)
-            {
-                case 0:
-                    Character.Image = images[dir, 0];
-                    break;
-                case 1:
-                    Character.Image = images[dir, 1];
-                    break;
-                case 2:
-                    Character.Image = images[dir, 2];
-                    break;
-                case 3:
-                    Character.Image = images[dir, 3];
-                    break;
-            }
+            Moving(dir, move_num);
         }
         #endregion
 
@@ -213,6 +205,11 @@ namespace TheDesktopBear
             //해당 User에게 수락/거절 메세지 보내기
             //수락시 파일전송창 띄워주기
             MessageBox.Show("파일을 전송하겠습니까");
+        }
+
+        private void 프로세스죽이기KToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

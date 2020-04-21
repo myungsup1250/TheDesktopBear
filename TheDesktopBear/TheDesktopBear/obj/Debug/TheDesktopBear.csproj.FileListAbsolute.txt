@@ -8,3 +8,14 @@ C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\bin
 C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.exe
 C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.pdb
 C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.FileSender.resources
+C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.exe.config
+C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.exe
+C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.pdb
+C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csprojAssemblyReference.cache
+C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.Bear.resources
+C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.FileSender.resources
+C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.Properties.Resources.resources
+C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.GenerateResource.cache
+C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.CoreCompileInputs.cache
+C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.exe
+C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.pdb
