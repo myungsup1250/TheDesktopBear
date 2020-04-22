@@ -216,8 +216,6 @@ namespace TheDesktopBear
         private void 멈추기SToolStripMenuItem_Click(object sender, EventArgs e)    {
             if (dir != 4) dir = 4;
             else dir = 0;
-        
-        
         }
 
         private void 파일전송하기SToolStripMenuItem_Click(object sender, EventArgs e)
