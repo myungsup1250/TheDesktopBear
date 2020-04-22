@@ -198,7 +198,12 @@ namespace TheDesktopBear
         }
         #endregion
 
-        private void 멈추기SToolStripMenuItem_Click(object sender, EventArgs e)    { dir = 4;}
+        private void 멈추기SToolStripMenuItem_Click(object sender, EventArgs e)    {
+            if (dir != 4) dir = 4;
+            else dir = 0;
+        
+        
+        }
 
         private void NewBearBtn_Click(object sender, EventArgs e)
         {

@@ -19,3 +19,14 @@ C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\
 C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.CoreCompileInputs.cache
 C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.exe
 C:\Users\Home\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.pdb
+C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.exe.config
+C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.exe
+C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.pdb
+C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csprojAssemblyReference.cache
+C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.Bear.resources
+C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.FileSender.resources
+C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.Properties.Resources.resources
+C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.GenerateResource.cache
+C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.CoreCompileInputs.cache
+C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.exe
+C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.pdb
