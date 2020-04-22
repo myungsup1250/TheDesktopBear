@@ -1,4 +1,8 @@
 using System;
+using System.IO;
+using System.Net;
+using System.Net.Sockets;
+using System.Net.NetworkInformation;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +11,8 @@ using System.Linq;
 using System.Media;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace TheDesktopBear
 {
@@ -95,14 +99,30 @@ namespace TheDesktopBear
             if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
         }
 
+        //데이터를 보낼 대상이 되는 곰의 ip입니다.
+        public static string serverIP = "223.194.44.37";
+
         void Form1_DragDrop(object sender, DragEventArgs e)
         {
-            //여기에 통신부분들어가면 좋을 것 같음
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            foreach (string file in files)
+            string filePath = getFilePath((string[])e.Data.GetData(DataFormats.FileDrop, false));
+
+            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            socket.Connect(IPAddress.Parse(serverIP), 7000);
+
+            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            int fileLength = (int)fs.Length;
+            byte[] buffer = BitConverter.GetBytes(fileLength);
+            socket.Send(buffer);
+
+            int count = fileLength / 1024 + 1;
+            BinaryReader reader = new BinaryReader(fs);
+            for (int i = 0; i < count; i++)
             {
-                //consoleeee.Text = file.ToString();
+                buffer = reader.ReadBytes(1024);
+                socket.Send(buffer);
             }
+            reader.Close();
+            socket.Close();
         }
         #endregion
 
@@ -235,6 +255,80 @@ namespace TheDesktopBear
             mouse_control = !mouse_control;
         }
 
+        private void 파일수신하기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Socket mySocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+            IPEndPoint point = new IPEndPoint(IPAddress.Parse(getLocalIP()), 7000);
+
+            mySocket.Bind(point);
+
+            mySocket.Listen(100);
+
+            mySocket = mySocket.Accept();
+
+            //파일 크기를 저장할 버퍼
+            byte[] buffer = new byte[4];
+
+            //클라이언트로부터 파일 크기 수신
+            mySocket.Receive(buffer);
+
+            //파일 크기를 정수로 변환, fileLength에 저장
+            int fileLength = BitConverter.ToInt32(buffer, 0);
+
+            //버퍼 크기 새로 지정
+            buffer = new byte[1024];
+
+            int totalLength = 0;
+
+            FileStream fileStr = new FileStream("123.txt", FileMode.Create, FileAccess.Write);
+
+            //받을 데이터를 파일에 쓰기 위해 BinaryWriter 객체 생성
+            BinaryWriter bnryWriter = new BinaryWriter(fileStr);
+
+            //파일 수신
+            while (totalLength < fileLength)
+            {
+                //받을 데이터 길이 저장
+                int receiveLength = mySocket.Receive(buffer);
+
+                //받은 데이터를 fileStr에 씀
+                bnryWriter.Write(buffer, 0, receiveLength);
+
+                totalLength += receiveLength;
+            }
+            bnryWriter.Close();
+            mySocket.Close();
+        }
+
+        #region 자신의 localIP 리턴함수
+        private string getLocalIP()
+        {
+            string localIP = "Not available, please check your network seetings!";
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (IPAddress ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    localIP = ip.ToString();
+                    break;
+                }
+            }
+            return localIP;
+        }
+        #endregion
+
+        private string getFilePath(string[] fileArg)
+        {
+            string[] filePathsArray = fileArg;
+            string filePath = "";
+            foreach (string temp in filePathsArray)
+            {
+                filePath += temp;
+            }
+            return filePath;
+        }
+
         private void 분신술CToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Bear f = new Bear();
@@ -249,7 +343,7 @@ namespace TheDesktopBear
             url[2] = ("https://github.com/Team-TDB/TheDesktopBear");
 
             Random r = new Random();
-            
+
             System.Diagnostics.Process.Start(url[r.Next(0,4)]);
         }
     }
