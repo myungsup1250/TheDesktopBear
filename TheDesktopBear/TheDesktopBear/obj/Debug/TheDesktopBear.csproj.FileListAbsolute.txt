@@ -30,3 +30,14 @@ C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\o
 C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.CoreCompileInputs.cache
 C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.exe
 C:\Users\Dolphin\Documents\GitHub\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.pdb
+C:\Users\곽명섭\Documents\TDB\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.exe.config
+C:\Users\곽명섭\Documents\TDB\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.exe
+C:\Users\곽명섭\Documents\TDB\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.pdb
+C:\Users\곽명섭\Documents\TDB\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csprojAssemblyReference.cache
+C:\Users\곽명섭\Documents\TDB\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.Bear.resources
+C:\Users\곽명섭\Documents\TDB\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.FileSender.resources
+C:\Users\곽명섭\Documents\TDB\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.Properties.Resources.resources
+C:\Users\곽명섭\Documents\TDB\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.GenerateResource.cache
+C:\Users\곽명섭\Documents\TDB\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.CoreCompileInputs.cache
+C:\Users\곽명섭\Documents\TDB\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.exe
+C:\Users\곽명섭\Documents\TDB\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.pdb
