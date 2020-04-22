@@ -344,7 +344,7 @@ namespace TheDesktopBear
 
             Random r = new Random();
 
-            System.Diagnostics.Process.Start(url[r.Next(0,4)]);
+            System.Diagnostics.Process.Start(url[r.Next(0,3)]);
         }
     }
 }
