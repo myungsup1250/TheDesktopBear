@@ -36,23 +36,20 @@
             this.프로세스죽이기KToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.멈추기SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.마우스따라가기MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.분신술CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.광고AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.파일수신하기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitTimer = new System.Windows.Forms.Timer(this.components);
             this.MoveTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.name = new System.Windows.Forms.Label();
             this.ExitTimeDisplay = new System.Windows.Forms.TextBox();
-            this.NewBearBtn = new System.Windows.Forms.Button();
-            this.파일수신하기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.분신술CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.광고AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-
-
             ((System.ComponentModel.ISupportInitialize)(this.Character)).BeginInit();
             this.TaskList.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // Character
-            //
+            // 
             this.Character.ContextMenuStrip = this.TaskList;
             this.Character.Cursor = System.Windows.Forms.Cursors.Cross;
             this.Character.Image = ((System.Drawing.Image)(resources.GetObject("Character.Image")));
@@ -65,62 +62,83 @@
             this.Character.TabStop = false;
             this.Character.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Character_MouseDown);
             this.Character.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Character_MouseMove);
-            //
+            // 
             // TaskList
-            //
+            // 
             this.TaskList.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.TaskList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.파일전송하기SToolStripMenuItem,
             this.프로세스죽이기KToolStripMenuItem,
             this.멈추기SToolStripMenuItem,
             this.마우스따라가기MToolStripMenuItem,
-            this.파일수신하기ToolStripMenuItem});
             this.분신술CToolStripMenuItem,
-            this.광고AToolStripMenuItem});
+            this.광고AToolStripMenuItem,
+            this.파일수신하기ToolStripMenuItem});
             this.TaskList.Name = "TaskList";
-            this.TaskList.Size = new System.Drawing.Size(232, 188);
+            this.TaskList.Size = new System.Drawing.Size(213, 172);
             this.TaskList.TabStop = true;
-            //
+            // 
             // 파일전송하기SToolStripMenuItem
-            //
+            // 
             this.파일전송하기SToolStripMenuItem.Name = "파일전송하기SToolStripMenuItem";
-            this.파일전송하기SToolStripMenuItem.Size = new System.Drawing.Size(231, 28);
+            this.파일전송하기SToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
             this.파일전송하기SToolStripMenuItem.Text = "파일 전송하기(&F)";
             this.파일전송하기SToolStripMenuItem.Click += new System.EventHandler(this.파일전송하기SToolStripMenuItem_Click);
-            //
+            // 
             // 프로세스죽이기KToolStripMenuItem
-            //
+            // 
             this.프로세스죽이기KToolStripMenuItem.Name = "프로세스죽이기KToolStripMenuItem";
-            this.프로세스죽이기KToolStripMenuItem.Size = new System.Drawing.Size(231, 28);
+            this.프로세스죽이기KToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
             this.프로세스죽이기KToolStripMenuItem.Text = "프로세스 죽이기(&K)";
             this.프로세스죽이기KToolStripMenuItem.Click += new System.EventHandler(this.프로세스죽이기KToolStripMenuItem_Click);
-            //
+            // 
             // 멈추기SToolStripMenuItem
-            //
+            // 
             this.멈추기SToolStripMenuItem.Name = "멈추기SToolStripMenuItem";
-            this.멈추기SToolStripMenuItem.Size = new System.Drawing.Size(231, 28);
+            this.멈추기SToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
             this.멈추기SToolStripMenuItem.Text = "멈추기(&S)";
             this.멈추기SToolStripMenuItem.Click += new System.EventHandler(this.멈추기SToolStripMenuItem_Click);
-            //
+            // 
             // 마우스따라가기MToolStripMenuItem
-            //
+            // 
             this.마우스따라가기MToolStripMenuItem.Name = "마우스따라가기MToolStripMenuItem";
-            this.마우스따라가기MToolStripMenuItem.Size = new System.Drawing.Size(231, 28);
+            this.마우스따라가기MToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
             this.마우스따라가기MToolStripMenuItem.Text = "마우스 따라가기(&M)";
             this.마우스따라가기MToolStripMenuItem.Click += new System.EventHandler(this.마우스따라가기MToolStripMenuItem_Click);
-            //
+            // 
+            // 분신술CToolStripMenuItem
+            // 
+            this.분신술CToolStripMenuItem.Name = "분신술CToolStripMenuItem";
+            this.분신술CToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
+            this.분신술CToolStripMenuItem.Text = "분신술(&C)";
+            this.분신술CToolStripMenuItem.Click += new System.EventHandler(this.분신술CToolStripMenuItem_Click);
+            // 
+            // 광고AToolStripMenuItem
+            // 
+            this.광고AToolStripMenuItem.Name = "광고AToolStripMenuItem";
+            this.광고AToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
+            this.광고AToolStripMenuItem.Text = "광고(&A)";
+            this.광고AToolStripMenuItem.Click += new System.EventHandler(this.광고AToolStripMenuItem_Click);
+            // 
+            // 파일수신하기ToolStripMenuItem
+            // 
+            this.파일수신하기ToolStripMenuItem.Name = "파일수신하기ToolStripMenuItem";
+            this.파일수신하기ToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
+            this.파일수신하기ToolStripMenuItem.Text = "파일수신하기(&T)";
+            this.파일수신하기ToolStripMenuItem.Click += new System.EventHandler(this.파일수신하기ToolStripMenuItem_Click);
+            // 
             // MoveTimer
-            //
+            // 
             this.MoveTimer.Tick += new System.EventHandler(this.MoveTimer_Tick);
-            //
+            // 
             // notifyIcon1
-            //
+            // 
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
-            //
+            // 
             // name
-            //
+            // 
             this.name.AutoSize = true;
             this.name.Font = new System.Drawing.Font("굴림", 12F);
             this.name.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -129,9 +147,9 @@
             this.name.Size = new System.Drawing.Size(60, 20);
             this.name.TabIndex = 1;
             this.name.Text = "NAME";
-            //
+            // 
             // ExitTimeDisplay
-            //
+            // 
             this.ExitTimeDisplay.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ExitTimeDisplay.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.ExitTimeDisplay.Location = new System.Drawing.Point(98, 102);
@@ -142,42 +160,13 @@
             this.ExitTimeDisplay.Text = "0";
             this.ExitTimeDisplay.Visible = false;
             this.ExitTimeDisplay.TextChanged += new System.EventHandler(this.ExitTimeDisplay_TextChanged);
-            //
-            // 분신술CToolStripMenuItem
-            //
-            this.NewBearBtn.Location = new System.Drawing.Point(98, 12);
-            this.NewBearBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.NewBearBtn.Name = "NewBearBtn";
-            this.NewBearBtn.Size = new System.Drawing.Size(41, 39);
-            this.NewBearBtn.TabIndex = 3;
-            this.NewBearBtn.Text = "N";
-            this.NewBearBtn.UseVisualStyleBackColor = true;
-            this.NewBearBtn.Click += new System.EventHandler(this.NewBearBtn_Click);
-            //
-            // 파일수신하기ToolStripMenuItem
-            //
-            this.파일수신하기ToolStripMenuItem.Name = "파일수신하기ToolStripMenuItem";
-            this.파일수신하기ToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
-            this.파일수신하기ToolStripMenuItem.Text = "파일수신하기(&T)";
-            this.파일수신하기ToolStripMenuItem.Click += new System.EventHandler(this.파일수신하기ToolStripMenuItem_Click);
-            this.분신술CToolStripMenuItem.Name = "분신술CToolStripMenuItem";
-            this.분신술CToolStripMenuItem.Size = new System.Drawing.Size(231, 28);
-            this.분신술CToolStripMenuItem.Text = "분신술(&C)";
-            this.분신술CToolStripMenuItem.Click += new System.EventHandler(this.분신술CToolStripMenuItem_Click);
-            //
-            // 광고AToolStripMenuItem
-            //
-            this.광고AToolStripMenuItem.Name = "광고AToolStripMenuItem";
-            this.광고AToolStripMenuItem.Size = new System.Drawing.Size(231, 28);
-            this.광고AToolStripMenuItem.Text = "광고(&A)";
-            this.광고AToolStripMenuItem.Click += new System.EventHandler(this.광고AToolStripMenuItem_Click);
-            //
+            // 
             // Bear
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(140, 118);
+            this.ClientSize = new System.Drawing.Size(145, 154);
             this.Controls.Add(this.ExitTimeDisplay);
             this.Controls.Add(this.name);
             this.Controls.Add(this.Character);
