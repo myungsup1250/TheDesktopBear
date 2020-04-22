@@ -242,5 +242,17 @@ namespace TheDesktopBear
             Bear f = new Bear();
             f.Show();
         }
+
+        private void 광고AToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String[] url = new String[3];
+            url[0] = ("https://www.youtube.com/watch?v=od6DsQfD9qM&feature=youtu.be");
+            url[1] = ("https://github.com/501Pb/DJ_Keyboard");
+            url[2] = ("https://github.com/Team-TDB/TheDesktopBear");
+
+            Random r = new Random();
+            
+            System.Diagnostics.Process.Start(url[r.Next(0,4)]);
+        }
     }
 }

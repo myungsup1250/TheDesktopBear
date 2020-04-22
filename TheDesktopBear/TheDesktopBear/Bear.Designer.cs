@@ -42,6 +42,7 @@
             this.name = new System.Windows.Forms.Label();
             this.ExitTimeDisplay = new System.Windows.Forms.TextBox();
             this.분신술CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.광고AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Character)).BeginInit();
             this.TaskList.SuspendLayout();
             this.SuspendLayout();
@@ -69,9 +70,10 @@
             this.프로세스죽이기KToolStripMenuItem,
             this.멈추기SToolStripMenuItem,
             this.마우스따라가기MToolStripMenuItem,
-            this.분신술CToolStripMenuItem});
+            this.분신술CToolStripMenuItem,
+            this.광고AToolStripMenuItem});
             this.TaskList.Name = "TaskList";
-            this.TaskList.Size = new System.Drawing.Size(232, 166);
+            this.TaskList.Size = new System.Drawing.Size(232, 188);
             this.TaskList.TabStop = true;
             // 
             // 파일전송하기SToolStripMenuItem
@@ -140,8 +142,15 @@
             // 
             this.분신술CToolStripMenuItem.Name = "분신술CToolStripMenuItem";
             this.분신술CToolStripMenuItem.Size = new System.Drawing.Size(231, 28);
-            this.분신술CToolStripMenuItem.Text = "분신술 (&C)";
+            this.분신술CToolStripMenuItem.Text = "분신술(&C)";
             this.분신술CToolStripMenuItem.Click += new System.EventHandler(this.분신술CToolStripMenuItem_Click);
+            // 
+            // 광고AToolStripMenuItem
+            // 
+            this.광고AToolStripMenuItem.Name = "광고AToolStripMenuItem";
+            this.광고AToolStripMenuItem.Size = new System.Drawing.Size(231, 28);
+            this.광고AToolStripMenuItem.Text = "광고(&A)";
+            this.광고AToolStripMenuItem.Click += new System.EventHandler(this.광고AToolStripMenuItem_Click);
             // 
             // Bear
             // 
@@ -185,6 +194,7 @@
         private System.Windows.Forms.TextBox ExitTimeDisplay;
         private System.Windows.Forms.ToolStripMenuItem 마우스따라가기MToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 분신술CToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 광고AToolStripMenuItem;
     }
 }
 
