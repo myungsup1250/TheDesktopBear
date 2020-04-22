@@ -18,11 +18,12 @@ namespace TheDesktopBear
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        static void WaitPing()
+        public static void WaitPing()
         {
             CreateIcmpSocket();
             while (true) { Thread.Sleep(10); }
         }
+
         private static string GetMyLocalIP()
         {
             string localIP = "Not available, please check your network seetings!";
