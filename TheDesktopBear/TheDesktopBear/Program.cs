@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +18,12 @@ namespace TheDesktopBear
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Start());
+            Thread t = new Thread(new ThreadStart(FindFriends.WaitPing));
+            t.Start();
+
             Application.Run(new Bear());
+
+
         }
     }
 }

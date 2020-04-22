@@ -24,6 +24,10 @@ namespace TheDesktopBear
         Image[,] images = new Image[4, 4];
         int speed = 8;
         bool mouse_control = false;
+        int moving = 0;
+
+        int width = Screen.PrimaryScreen.Bounds.Width;
+        int height = Screen.PrimaryScreen.Bounds.Height;
 
         enum BearMove { FRONT, RIGHT, BACK, LEFT, STAND };
 
@@ -140,7 +144,7 @@ namespace TheDesktopBear
                     Character.Image = images[dir, idx];
                     break;
                 case (int)BearMove.LEFT:
-                    Location = new Point(this.Location.X - speed, this.Location.Y - speed);
+                    Location = new Point(this.Location.X - speed, this.Location.Y);
                     Character.Image = images[dir, idx];
                     break;
                 default:
@@ -154,7 +158,17 @@ namespace TheDesktopBear
 
             move_num++; move_num %= 4;
 
-            Moving(dir, move_num);
+            if (moving == 0)
+            {
+                Random r = new Random();
+                moving = r.Next(10, 20);
+                dir = r.Next(0, 4);
+            }
+            else
+            {
+                Moving(dir, move_num);
+                moving--;
+            }
             if (mouse_control)
             {
                 Cursor.Position = new Point(this.Location.X + 45, this.Location.Y + 79);
@@ -212,6 +226,7 @@ namespace TheDesktopBear
         {
             if (ExitTimeDisplay.Text.Equals("10"))
             {
+                this.Dispose();
                 this.Close();
             }
 
@@ -221,14 +236,6 @@ namespace TheDesktopBear
         private void 멈추기SToolStripMenuItem_Click(object sender, EventArgs e)    {
             if (dir != 4) dir = 4;
             else dir = 0;
-        
-        
-        }
-
-        private void NewBearBtn_Click(object sender, EventArgs e)
-        {
-            Bear f = new Bear();
-            f.Show();
         }
 
         private void 파일전송하기SToolStripMenuItem_Click(object sender, EventArgs e)
@@ -320,6 +327,24 @@ namespace TheDesktopBear
                 filePath += temp;
             }
             return filePath;
+        }
+
+        private void 분신술CToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bear f = new Bear();
+            f.Show();
+        }
+
+        private void 광고AToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String[] url = new String[3];
+            url[0] = ("https://www.youtube.com/watch?v=od6DsQfD9qM&feature=youtu.be");
+            url[1] = ("https://github.com/501Pb/DJ_Keyboard");
+            url[2] = ("https://github.com/Team-TDB/TheDesktopBear");
+
+            Random r = new Random();
+
+            System.Diagnostics.Process.Start(url[r.Next(0,4)]);
         }
     }
 }
