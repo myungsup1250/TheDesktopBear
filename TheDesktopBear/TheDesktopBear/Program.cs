@@ -17,13 +17,13 @@ namespace TheDesktopBear
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Start());
+
             Thread t = new Thread(new ThreadStart(FindFriends.WaitPing));
             t.Start();
 
+            Thread receive = new Thread(new ThreadStart(Bear.receive));
+            receive.Start();
             Application.Run(new Bear());
-
-
         }
     }
 }

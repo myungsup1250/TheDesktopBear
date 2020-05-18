@@ -41,10 +41,10 @@ namespace TheDesktopBear
             MoveTimer.Interval = 500;
             MoveTimer.Start();
 
+
             this.AllowDrop = true;
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
-
         }
         void LoadImage()
         {
@@ -100,14 +100,31 @@ namespace TheDesktopBear
         }
 
         //데이터를 보낼 대상이 되는 곰의 ip입니다.
-        public static string serverIP = "223.194.44.37";
+        public static string targetIP = "";
+        public static DragEventArgs dragEvent;
 
         void Form1_DragDrop(object sender, DragEventArgs e)
         {
+            dragEvent = e;
+
+            if (FindFriends.friendList.Count == 0)
+            {
+                Console.WriteLine("no friend!");
+                return;
+            }
+            
+            FriendListForm flf = new FriendListForm();
+            flf.Show();
+        }
+
+        public static void fileSend(DragEventArgs e)
+        {
+            //파일경로, 파일 확장자
             string filePath = getFilePath((string[])e.Data.GetData(DataFormats.FileDrop, false));
+            string fileExtension = "extention" + Path.GetExtension(filePath);
 
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            socket.Connect(IPAddress.Parse(serverIP), 7000);
+            socket.Connect(IPAddress.Parse(targetIP), 7000);
 
             FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             int fileLength = (int)fs.Length;
@@ -121,6 +138,8 @@ namespace TheDesktopBear
                 buffer = reader.ReadBytes(1024);
                 socket.Send(buffer);
             }
+            socket.Send(Encoding.UTF8.GetBytes(fileExtension));
+
             reader.Close();
             socket.Close();
         }
@@ -286,23 +305,109 @@ namespace TheDesktopBear
             //받을 데이터를 파일에 쓰기 위해 BinaryWriter 객체 생성
             BinaryWriter bnryWriter = new BinaryWriter(fileStr);
 
+            //받은 파일의 확장자를 저장할 변수
+            string extension;
+            int extensionIndex;
+
+            //받은 파일을 string으로 변환
+            string context;
+
             //파일 수신
             while (totalLength < fileLength)
             {
                 //받을 데이터 길이 저장
                 int receiveLength = mySocket.Receive(buffer);
 
+                //context = Encoding.Default.GetString(buffer);
+                //if (context.Contains("extension"))
+                //{
+                //    extensionIndex = context.IndexOf("extension");
+                //    context = context.Substring(0, extensionIndex);
+                //    extension = context.Substring(extensionIndex);
+                //    extensionIndex = extension.IndexOf(".");
+                //    extension = extension.Substring(extensionIndex);
+                //    Console.WriteLine(context);
+                //    Console.WriteLine(extension);
+                //}
+
                 //받은 데이터를 fileStr에 씀
                 bnryWriter.Write(buffer, 0, receiveLength);
 
                 totalLength += receiveLength;
             }
+            
+            bnryWriter.Close();
+            mySocket.Close();
+        }
+
+        public static void receive()
+        {
+            Socket mySocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+            IPEndPoint point = new IPEndPoint(IPAddress.Parse(getLocalIP()), 7000);
+
+            mySocket.Bind(point);
+
+            mySocket.Listen(100);
+
+            mySocket = mySocket.Accept();
+
+            //파일 크기를 저장할 버퍼
+            byte[] buffer = new byte[4];
+
+            //클라이언트로부터 파일 크기 수신
+            mySocket.Receive(buffer);
+
+            //파일 크기를 정수로 변환, fileLength에 저장
+            int fileLength = BitConverter.ToInt32(buffer, 0);
+
+            //버퍼 크기 새로 지정
+            buffer = new byte[1024];
+
+            int totalLength = 0;
+
+            FileStream fileStr = new FileStream("123.txt", FileMode.Create, FileAccess.Write);
+
+            //받을 데이터를 파일에 쓰기 위해 BinaryWriter 객체 생성
+            BinaryWriter bnryWriter = new BinaryWriter(fileStr);
+
+            //받은 파일의 확장자를 저장할 변수
+            string extension;
+            int extensionIndex;
+
+            //받은 파일을 string으로 변환
+            string context;
+
+            //파일 수신
+            while (totalLength < fileLength)
+            {
+                //받을 데이터 길이 저장
+                int receiveLength = mySocket.Receive(buffer);
+
+                //context = Encoding.Default.GetString(buffer);
+                //if (context.Contains("extension"))
+                //{
+                //    extensionIndex = context.IndexOf("extension");
+                //    context = context.Substring(0, extensionIndex);
+                //    extension = context.Substring(extensionIndex);
+                //    extensionIndex = extension.IndexOf(".");
+                //    extension = extension.Substring(extensionIndex);
+                //    Console.WriteLine(context);
+                //    Console.WriteLine(extension);
+                //}
+
+                //받은 데이터를 fileStr에 씀
+                bnryWriter.Write(buffer, 0, receiveLength);
+
+                totalLength += receiveLength;
+            }
+
             bnryWriter.Close();
             mySocket.Close();
         }
 
         #region 자신의 localIP 리턴함수
-        private string getLocalIP()
+        private static string getLocalIP()
         {
             string localIP = "Not available, please check your network seetings!";
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
@@ -318,7 +423,7 @@ namespace TheDesktopBear
         }
         #endregion
 
-        private string getFilePath(string[] fileArg)
+        private static string getFilePath(string[] fileArg)
         {
             string[] filePathsArray = fileArg;
             string filePath = "";
@@ -345,6 +450,157 @@ namespace TheDesktopBear
             Random r = new Random();
 
             System.Diagnostics.Process.Start(url[r.Next(0,3)]);
+        }
+
+        #region 친구찾기 위한 전역변수
+        private static List<Ping> pingers = new List<Ping>();
+
+        private static int instances = 0;
+
+        private static object @lock = new object();
+
+        private static int result = 0;
+        private static int timeOut = 250;
+
+        private static int ttl = 5;
+        #endregion
+
+        private void 친구찾기FToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string temp = GetARPResult();
+            temp = temp.Replace("\r\n", "/");
+            temp = temp.Replace(" ", "/");
+            string[] words = temp.Split('/');
+            //ip : local ip를 저장하는 list
+            List<string> ip = new List<string>();
+
+            foreach (string word in words)
+            {
+                if (word.Contains('.'))
+                {
+                    if (word == getLocalIP())
+                        continue;
+
+                    ip.Add(word);
+                }
+            }
+            CreatePingers(ip.Count);
+            PingOptions po = new PingOptions(ttl, true);
+            System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
+
+            byte[] data = enc.GetBytes(allignPingMsg("Bear-" + getLocalIP()));
+
+            SpinWait wait = new SpinWait();
+            int cnt = 1;
+
+            Stopwatch watch = Stopwatch.StartNew();
+
+            foreach (Ping p in pingers)
+            {
+                lock (@lock)
+                {
+                    instances += 1;
+                }
+                p.SendAsync(ip[0], timeOut, data, po);
+                ip.RemoveAt(0);
+
+                cnt += 1;
+            }
+
+            while (instances > 0)
+            {
+                wait.SpinOnce();
+                instances--;
+            }
+            watch.Stop();
+            DestroyPingers();
+        }
+        public static void Ping_completed(object s, PingCompletedEventArgs e)
+        {
+            lock (@lock)
+            {
+                instances -= 1;
+            }
+
+            if (e.Reply.Status == IPStatus.Success)
+            {
+                Console.WriteLine(string.Concat("Active IP: ", e.Reply.Address.ToString()));
+                result += 1;
+            }
+            else
+            {
+                //Console.WriteLine(String.Concat("Non-active IP: ", e.Reply.Address.ToString()));
+            }
+        }
+
+
+        private static void CreatePingers(int cnt)
+        {
+            for (int i = 1; i <= cnt; i++)
+            {
+                Ping p = new Ping();
+                p.PingCompleted += Ping_completed;
+                pingers.Add(p); 
+            }
+        }
+
+        private static void DestroyPingers()
+        {
+            foreach (Ping p in pingers)
+            {
+                p.PingCompleted -= Ping_completed;
+                p.Dispose();
+            }
+
+            pingers.Clear();
+
+        }
+        private static string GetARPResult()
+        {
+            Process p = null;
+            string output = string.Empty;
+
+            try
+            {
+                p = Process.Start(new ProcessStartInfo("arp", "-a")
+                {
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true
+                });
+
+                output = p.StandardOutput.ReadToEnd();
+
+                p.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("IPInfo: Error Retrieving 'arp -a' Results", ex);
+            }
+            finally
+            {
+                if (p != null)
+                {
+                    p.Close();
+                }
+            }
+
+            return output;
+        }
+
+        //Message의 길이를 32byte로 맞춰 줍니다
+        public static string allignPingMsg(string msg)
+        {
+            if (msg.Length > 32)
+                return msg;
+
+            int temp = msg.Length;
+
+            for (int i = 0; i < (32 - temp); i++)
+            {
+                msg += "#";
+            }
+            return msg;
         }
     }
 }

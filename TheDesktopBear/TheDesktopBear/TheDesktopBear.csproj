@@ -35,6 +35,15 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,6 +71,12 @@
     <Compile Include="FileSender.Designer.cs">
       <DependentUpon>FileSender.cs</DependentUpon>
     </Compile>
+    <Compile Include="FriendAgree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FriendAgree.Designer.cs">
+      <DependentUpon>FriendAgree.cs</DependentUpon>
+    </Compile>
     <Compile Include="IPHeader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FileSender.resx">
       <DependentUpon>FileSender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FriendAgree.resx">
+      <DependentUpon>FriendAgree.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -80,6 +98,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
