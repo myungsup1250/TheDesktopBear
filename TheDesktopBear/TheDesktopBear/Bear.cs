@@ -24,7 +24,7 @@ namespace TheDesktopBear
         private Point mousePoint;
         Image[,] images = new Image[4, 4];
 
-
+        static Socket recievemySocket;
         int speed = 8;
         bool mouse_control = false;
         int moving = 0;
@@ -277,6 +277,7 @@ namespace TheDesktopBear
             {
                 this.Dispose();
                 Program.t.Abort();
+                recievemySocket.Close();
                 this.Close();
             }
         }
@@ -306,21 +307,21 @@ namespace TheDesktopBear
 
         public static void receive()
         {
-            Socket mySocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            recievemySocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             IPEndPoint point = new IPEndPoint(IPAddress.Parse(getLocalIP()), 7000);
 
-            mySocket.Bind(point);
+            recievemySocket.Bind(point);
 
-            mySocket.Listen(100);
+            recievemySocket.Listen(100);
 
-            mySocket = mySocket.Accept();
+            recievemySocket = recievemySocket.Accept();
 
             //파일 크기를 저장할 버퍼
             byte[] buffer = new byte[4];
 
             //파일 크기 수신
-            mySocket.Receive(buffer);
+            recievemySocket.Receive(buffer);
 
             //파일 크기를 정수로 변환, fileLength에 저장
             int fileLength = BitConverter.ToInt32(buffer, 0);
@@ -328,12 +329,12 @@ namespace TheDesktopBear
 
 
             //파일 이름 길이 수신
-            mySocket.Receive(buffer);
+            recievemySocket.Receive(buffer);
             int fileNameLength = BitConverter.ToInt32(buffer, 0);
 
             buffer = new byte[1024*4];
             //파일 이름 수신
-            mySocket.Receive(buffer);
+            recievemySocket.Receive(buffer);
 
             string fileName = Encoding.UTF8.GetString(buffer);
             fileName = fileName.Split('\x01')[0];
@@ -371,7 +372,7 @@ namespace TheDesktopBear
             while (totalLength < fileLength)
             {
                 //받을 데이터 길이 저장
-                int receiveLength = mySocket.Receive(buffer);
+                int receiveLength = recievemySocket.Receive(buffer);
                 //받은 데이터를 fileStr에 씀
                 bnryWriter.Write(buffer, 0, receiveLength);
 
@@ -379,7 +380,7 @@ namespace TheDesktopBear
             }
 
             bnryWriter.Close();
-            mySocket.Close();
+            recievemySocket.Close();
         }
 
         public static string getPathByDialog()
@@ -591,6 +592,8 @@ namespace TheDesktopBear
         {
             if (name.Text == "0")
             {
+                recievemySocket.Close();
+
                 Program.t.Abort();
             }
         }
