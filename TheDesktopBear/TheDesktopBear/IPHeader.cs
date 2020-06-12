@@ -28,10 +28,10 @@ namespace TheDesktopBear
         private byte byProtocol;                 //Eight bits for the underlying protocol
         private short sChecksum;                  //Sixteen bits containing the checksum of the header
                                                   //(checksum can be negative so taken as short)
+
         private uint uiSourceIPAddress;          //Thirty two bit source IP Address
         private uint uiDestinationIPAddress;     //Thirty two bit destination IP Address
                                                  //End IP Header fields
-
         private byte byHeaderLength;             //Header length
         private ushort byMessagerLength;             //Message length
         private byte[] byIPData = new byte[4096];  //Data carried by the datagram

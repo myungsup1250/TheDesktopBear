@@ -39,12 +39,12 @@
             this.분신술CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.광고AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.파일수신하기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.친구찾기FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitTimer = new System.Windows.Forms.Timer(this.components);
             this.MoveTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.name = new System.Windows.Forms.Label();
             this.ExitTimeDisplay = new System.Windows.Forms.TextBox();
-            this.친구찾기FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.name = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Character)).BeginInit();
             this.TaskList.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +57,7 @@
             this.Character.Location = new System.Drawing.Point(11, 39);
             this.Character.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Character.Name = "Character";
-            this.Character.Size = new System.Drawing.Size(80, 88);
+            this.Character.Size = new System.Drawing.Size(68, 112);
             this.Character.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Character.TabIndex = 0;
             this.Character.TabStop = false;
@@ -77,8 +77,9 @@
             this.파일수신하기ToolStripMenuItem,
             this.친구찾기FToolStripMenuItem});
             this.TaskList.Name = "TaskList";
-            this.TaskList.Size = new System.Drawing.Size(213, 224);
+            this.TaskList.Size = new System.Drawing.Size(213, 196);
             this.TaskList.TabStop = true;
+            this.TaskList.Text = "C";
             // 
             // 파일전송하기SToolStripMenuItem
             // 
@@ -129,6 +130,13 @@
             this.파일수신하기ToolStripMenuItem.Text = "파일수신하기(&T)";
             this.파일수신하기ToolStripMenuItem.Click += new System.EventHandler(this.파일수신하기ToolStripMenuItem_Click);
             // 
+            // 친구찾기FToolStripMenuItem
+            // 
+            this.친구찾기FToolStripMenuItem.Name = "친구찾기FToolStripMenuItem";
+            this.친구찾기FToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
+            this.친구찾기FToolStripMenuItem.Text = "친구찾기(&F)";
+            this.친구찾기FToolStripMenuItem.Click += new System.EventHandler(this.친구찾기FToolStripMenuItem_Click);
+            // 
             // MoveTimer
             // 
             this.MoveTimer.Tick += new System.EventHandler(this.MoveTimer_Tick);
@@ -139,22 +147,11 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
-            // name
-            // 
-            this.name.AutoSize = true;
-            this.name.Font = new System.Drawing.Font("굴림", 12F);
-            this.name.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.name.Location = new System.Drawing.Point(21, 16);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(60, 20);
-            this.name.TabIndex = 1;
-            this.name.Text = "NAME";
-            // 
             // ExitTimeDisplay
             // 
             this.ExitTimeDisplay.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ExitTimeDisplay.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.ExitTimeDisplay.Location = new System.Drawing.Point(98, 102);
+            this.ExitTimeDisplay.Location = new System.Drawing.Point(101, 39);
             this.ExitTimeDisplay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExitTimeDisplay.Name = "ExitTimeDisplay";
             this.ExitTimeDisplay.Size = new System.Drawing.Size(30, 25);
@@ -163,19 +160,24 @@
             this.ExitTimeDisplay.Visible = false;
             this.ExitTimeDisplay.TextChanged += new System.EventHandler(this.ExitTimeDisplay_TextChanged);
             // 
-            // 친구찾기FToolStripMenuItem
+            // name
             // 
-            this.친구찾기FToolStripMenuItem.Name = "친구찾기FToolStripMenuItem";
-            this.친구찾기FToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
-            this.친구찾기FToolStripMenuItem.Text = "친구찾기(&F)";
-            this.친구찾기FToolStripMenuItem.Click += new System.EventHandler(this.친구찾기FToolStripMenuItem_Click);
+            this.name.AutoSize = true;
+            this.name.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.name.Font = new System.Drawing.Font("굴림", 12F);
+            this.name.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.name.Location = new System.Drawing.Point(34, 9);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(20, 20);
+            this.name.TabIndex = 1;
+            this.name.Text = "0";
             // 
             // Bear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(145, 154);
+            this.ClientSize = new System.Drawing.Size(143, 186);
             this.Controls.Add(this.ExitTimeDisplay);
             this.Controls.Add(this.name);
             this.Controls.Add(this.Character);
@@ -188,6 +190,7 @@
             this.Text = "TheDesktopBear";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.SystemColors.HotTrack;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Bear_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CharacterKeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CharacterKeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CharacterKeyUp);
@@ -208,12 +211,12 @@
         private System.Windows.Forms.ToolStripMenuItem 파일전송하기SToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 프로세스죽이기KToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 멈추기SToolStripMenuItem;
-        private System.Windows.Forms.Label name;
         private System.Windows.Forms.TextBox ExitTimeDisplay;
         private System.Windows.Forms.ToolStripMenuItem 마우스따라가기MToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 파일수신하기ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 분신술CToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 광고AToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 친구찾기FToolStripMenuItem;
+        private System.Windows.Forms.Label name;
     }
 }

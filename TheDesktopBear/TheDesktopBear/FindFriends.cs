@@ -74,7 +74,6 @@ namespace TheDesktopBear
             if(allignPingMsg("Bear-" + GetMyLocalIP()) == bearMsg)
             {
                 Console.WriteLine("from me:" + bearMsg);
-                friendList.Add(bearMsg);
             }
             //다른 프로그램으로부터 온 ping
             else
@@ -90,29 +89,6 @@ namespace TheDesktopBear
                 }
             }
         }
-        public static string allignPingMsg(string msg)
-        {
-            if (msg.Length > 32)
-                return msg;
-
-            int temp = msg.Length;
-
-            for (int i = 0; i < (32 - temp); i++)
-            {
-                msg += "#";
-            }
-            return msg;
-            //Checks RAW ICMP data.
-            //for (int i = 0; i < length; i++)
-            //{
-            //    Console.Write(String.Format("{0} ", buffer[i].ToString()));
-            //    if (i == 11 || i == 15 || i == 19 || i == 27)
-            //        Console.WriteLine("");
-            //    //Console.Write(String.Format("{0:X2} ", buffer[i]));
-            //}
-            //Console.WriteLine("");
-        }
-
         public static string allignPingMsg(string msg)
         {
             if (msg.Length > 32)
