@@ -43,6 +43,7 @@ namespace TheDesktopBear
             MoveTimer.Interval = 500;
             MoveTimer.Start();
 
+
             this.AllowDrop = true;
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
@@ -346,7 +347,7 @@ namespace TheDesktopBear
         }
 
         #region 자신의 localIP 리턴함수
-        private string getLocalIP()
+        private static string getLocalIP()
         {
             string localIP = "Not available, please check your network seetings!";
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());

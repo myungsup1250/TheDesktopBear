@@ -21,6 +21,14 @@ namespace TheDesktopBear
             Application.Run(new Bear());
 
             t.Abort();
+
+            Thread t = new Thread(new ThreadStart(FindFriends.WaitPing));
+            t.Start();
+
+            Thread receive = new Thread(new ThreadStart(Bear.receive));
+            receive.Start();
+            
+            Application.Run(new Bear());
         }
     }
 }
