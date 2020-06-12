@@ -20,9 +20,11 @@ namespace TheDesktopBear
 
     public partial class Bear : Form
     {
-
+        public static int childNum = 0;
         private Point mousePoint;
         Image[,] images = new Image[4, 4];
+
+
         int speed = 8;
         bool mouse_control = false;
         int moving = 0;
@@ -34,7 +36,7 @@ namespace TheDesktopBear
 
         private int move_num = -1; //이미지갱신을 위한 tick
         private int dir = (int)BearMove.FRONT; //방향
-        
+
 
         public Bear()
         {
@@ -46,6 +48,17 @@ namespace TheDesktopBear
             this.AllowDrop = true;
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
+        }
+        public Bear(int cnt) {
+            InitializeComponent();
+            LoadImage();
+            MoveTimer.Interval = 500;
+            MoveTimer.Start();
+
+            this.AllowDrop = true;
+            this.DragEnter += new DragEventHandler(Form1_DragEnter);
+            this.DragDrop += new DragEventHandler(Form1_DragDrop);
+            name.Text = (++cnt).ToString();
         }
         void LoadImage()
         {
@@ -113,7 +126,7 @@ namespace TheDesktopBear
                 Console.WriteLine("no friend!");
                 return;
             }
-            
+
             FriendListForm flf = new FriendListForm();
             flf.Show();
         }
@@ -121,8 +134,8 @@ namespace TheDesktopBear
         public static void fileSend(DragEventArgs e)
         {
             //파일경로, 파일 확장자
-            string filePath = getFilePath((string[])e.Data.GetData(DataFormats.FileDrop, false));            
-            
+            string filePath = getFilePath((string[])e.Data.GetData(DataFormats.FileDrop, false));
+
             //소켓 연결
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socket.Connect(IPAddress.Parse(targetIP), 7000);
@@ -263,9 +276,9 @@ namespace TheDesktopBear
             if (ExitTimeDisplay.Text.Equals("10"))
             {
                 this.Dispose();
+                Program.t.Abort();
                 this.Close();
             }
-
         }
         #endregion
 
@@ -290,8 +303,13 @@ namespace TheDesktopBear
         {
             mouse_control = !mouse_control;
         }
-        
+
         public static void receive()
+        {
+            Thread t = new Thread(new ThreadStart(test));
+            t.Start();
+        }
+        void test()
         {
             Socket mySocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
@@ -312,7 +330,7 @@ namespace TheDesktopBear
             //파일 크기를 정수로 변환, fileLength에 저장
             int fileLength = BitConverter.ToInt32(buffer, 0);
 
-            
+
 
             //파일 이름 길이 수신
             mySocket.Receive(buffer);
@@ -327,8 +345,8 @@ namespace TheDesktopBear
             MessageBox.Show(fileName);
             string filePath = "";
 
-            
-            
+
+
             if(MessageBox.Show("파일을 수신하시겠습니까?", "파일수신", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 filePath = getPathByDialog();
@@ -359,19 +377,6 @@ namespace TheDesktopBear
             {
                 //받을 데이터 길이 저장
                 int receiveLength = mySocket.Receive(buffer);
-
-                //context = Encoding.Default.GetString(buffer);
-                //if (context.Contains("extension"))
-                //{
-                //    extensionIndex = context.IndexOf("extension");
-                //    context = context.Substring(0, extensionIndex);
-                //    extension = context.Substring(extensionIndex);
-                //    extensionIndex = extension.IndexOf(".");
-                //    extension = extension.Substring(extensionIndex);
-                //    Console.WriteLine(context);
-                //    Console.WriteLine(extension);
-                //}
-
                 //받은 데이터를 fileStr에 씀
                 bnryWriter.Write(buffer, 0, receiveLength);
 
@@ -390,7 +395,7 @@ namespace TheDesktopBear
         }
 
         #region 자신의 localIP 리턴함수
-        private static string getLocalIP()
+        private string getLocalIP()
         {
             string localIP = "Not available, please check your network seetings!";
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
@@ -419,14 +424,15 @@ namespace TheDesktopBear
 
         private void 분신술CToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Bear f = new Bear();
+            Bear f = new Bear(childNum);
+            childNum++;
             f.Show();
         }
 
         private void 광고AToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String[] url = new String[3];
-            url[0] = ("https://www.youtube.com/watch?v=od6DsQfD9qM&feature=youtu.be");
+            url[0] = ("https://youtu.be/viJ6ONGOT_M");
             url[1] = ("https://github.com/501Pb/DJ_Keyboard");
             url[2] = ("https://github.com/Team-TDB/TheDesktopBear");
 
@@ -523,7 +529,7 @@ namespace TheDesktopBear
             {
                 Ping p = new Ping();
                 p.PingCompleted += Ping_completed;
-                pingers.Add(p); 
+                pingers.Add(p);
             }
         }
 
@@ -584,6 +590,14 @@ namespace TheDesktopBear
                 msg += "#";
             }
             return msg;
+        }
+
+        private void Bear_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (name.Text == "0")
+            {
+                Program.t.Abort();
+            }
         }
     }
 }

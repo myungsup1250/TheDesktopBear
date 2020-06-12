@@ -9,22 +9,22 @@ namespace TheDesktopBear
 {
     static class Program
     {
-        /// <summary>
-        /// 해당 애플리케이션의 주 진입점입니다.
-        /// </summary>
+        public static Thread t;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Thread t = new Thread(new ThreadStart(FindFriends.WaitPing));
+            t = new Thread(new ThreadStart(FindFriends.WaitPing));
             t.Start();
 
             Thread receive = new Thread(new ThreadStart(Bear.receive));
             receive.SetApartmentState(ApartmentState.STA);
             receive.Start();
             Application.Run(new Bear());
+
+            t.Abort();
         }
     }
 }

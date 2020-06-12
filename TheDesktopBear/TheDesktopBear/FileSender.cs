@@ -25,7 +25,6 @@ namespace TheDesktopBear
         {
             ++FileNum;
             FileImg1.BackColor = Color.White;
-
             //files.Add();
         }
         void FileDragEnter(object sender, DragEventArgs e)
