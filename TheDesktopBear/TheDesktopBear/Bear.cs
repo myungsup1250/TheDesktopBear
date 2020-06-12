@@ -306,11 +306,6 @@ namespace TheDesktopBear
 
         public static void receive()
         {
-            Thread t = new Thread(new ThreadStart(test));
-            t.Start();
-        }
-        void test()
-        {
             Socket mySocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             IPEndPoint point = new IPEndPoint(IPAddress.Parse(getLocalIP()), 7000);
@@ -395,7 +390,7 @@ namespace TheDesktopBear
         }
 
         #region 자신의 localIP 리턴함수
-        private string getLocalIP()
+        private static string getLocalIP()
         {
             string localIP = "Not available, please check your network seetings!";
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());

@@ -77,3 +77,15 @@ C:\Users\souvenir\Documents\카카오톡 받은 파일\0517bear\TheDesktopBear\T
 C:\Users\souvenir\Documents\카카오톡 받은 파일\0517bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.CoreCompileInputs.cache
 C:\Users\souvenir\Documents\카카오톡 받은 파일\0517bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.exe
 C:\Users\souvenir\Documents\카카오톡 받은 파일\0517bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.pdb
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.exe.config
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.exe
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\bin\Debug\TheDesktopBear.pdb
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csprojAssemblyReference.cache
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.Bear.resources
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.FileSender.resources
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.FriendListForm.resources
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.Properties.Resources.resources
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.GenerateResource.cache
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.CoreCompileInputs.cache
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.exe
+C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.pdb
