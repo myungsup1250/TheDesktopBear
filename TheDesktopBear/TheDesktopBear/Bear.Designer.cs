@@ -38,13 +38,13 @@
             this.마우스따라가기MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.분신술CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.광고AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.파일수신하기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.친구찾기FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitTimer = new System.Windows.Forms.Timer(this.components);
             this.MoveTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.name = new System.Windows.Forms.Label();
             this.ExitTimeDisplay = new System.Windows.Forms.TextBox();
-            this.친구찾기FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.Character)).BeginInit();
             this.TaskList.SuspendLayout();
             this.SuspendLayout();
@@ -74,10 +74,9 @@
             this.마우스따라가기MToolStripMenuItem,
             this.분신술CToolStripMenuItem,
             this.광고AToolStripMenuItem,
-            this.파일수신하기ToolStripMenuItem,
             this.친구찾기FToolStripMenuItem});
             this.TaskList.Name = "TaskList";
-            this.TaskList.Size = new System.Drawing.Size(213, 224);
+            this.TaskList.Size = new System.Drawing.Size(213, 200);
             this.TaskList.TabStop = true;
             // 
             // 파일전송하기SToolStripMenuItem
@@ -122,12 +121,12 @@
             this.광고AToolStripMenuItem.Text = "광고(&A)";
             this.광고AToolStripMenuItem.Click += new System.EventHandler(this.광고AToolStripMenuItem_Click);
             // 
-            // 파일수신하기ToolStripMenuItem
+            // 친구찾기FToolStripMenuItem
             // 
-            this.파일수신하기ToolStripMenuItem.Name = "파일수신하기ToolStripMenuItem";
-            this.파일수신하기ToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
-            this.파일수신하기ToolStripMenuItem.Text = "파일수신하기(&T)";
-            this.파일수신하기ToolStripMenuItem.Click += new System.EventHandler(this.파일수신하기ToolStripMenuItem_Click);
+            this.친구찾기FToolStripMenuItem.Name = "친구찾기FToolStripMenuItem";
+            this.친구찾기FToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
+            this.친구찾기FToolStripMenuItem.Text = "친구찾기(&F)";
+            this.친구찾기FToolStripMenuItem.Click += new System.EventHandler(this.친구찾기FToolStripMenuItem_Click);
             // 
             // MoveTimer
             // 
@@ -162,13 +161,6 @@
             this.ExitTimeDisplay.Text = "0";
             this.ExitTimeDisplay.Visible = false;
             this.ExitTimeDisplay.TextChanged += new System.EventHandler(this.ExitTimeDisplay_TextChanged);
-            // 
-            // 친구찾기FToolStripMenuItem
-            // 
-            this.친구찾기FToolStripMenuItem.Name = "친구찾기FToolStripMenuItem";
-            this.친구찾기FToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
-            this.친구찾기FToolStripMenuItem.Text = "친구찾기(&F)";
-            this.친구찾기FToolStripMenuItem.Click += new System.EventHandler(this.친구찾기FToolStripMenuItem_Click);
             // 
             // Bear
             // 
@@ -211,9 +203,9 @@
         private System.Windows.Forms.Label name;
         private System.Windows.Forms.TextBox ExitTimeDisplay;
         private System.Windows.Forms.ToolStripMenuItem 마우스따라가기MToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 파일수신하기ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 분신술CToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 광고AToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 친구찾기FToolStripMenuItem;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

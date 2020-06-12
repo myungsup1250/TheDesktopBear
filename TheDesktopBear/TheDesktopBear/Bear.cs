@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace TheDesktopBear
 {
@@ -33,6 +34,7 @@ namespace TheDesktopBear
 
         private int move_num = -1; //이미지갱신을 위한 tick
         private int dir = (int)BearMove.FRONT; //방향
+        
 
         public Bear()
         {
@@ -40,7 +42,6 @@ namespace TheDesktopBear
             LoadImage();
             MoveTimer.Interval = 500;
             MoveTimer.Start();
-
 
             this.AllowDrop = true;
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
@@ -120,17 +121,34 @@ namespace TheDesktopBear
         public static void fileSend(DragEventArgs e)
         {
             //파일경로, 파일 확장자
-            string filePath = getFilePath((string[])e.Data.GetData(DataFormats.FileDrop, false));
-            string fileExtension = "extention" + Path.GetExtension(filePath);
-
+            string filePath = getFilePath((string[])e.Data.GetData(DataFormats.FileDrop, false));            
+            
+            //소켓 연결
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socket.Connect(IPAddress.Parse(targetIP), 7000);
+
+
+            //드래그 이벤트가 fileSend로 전달되며, 이벤트 안에 파일에 대한 정보가 들어있음.
+            //파일에 대한 정보로 FileInformation 객체를 만들고, FIleInformation 객체를 송신하자.
+            FileInfo fileInfo = new FileInfo(filePath);
 
             FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             int fileLength = (int)fs.Length;
             byte[] buffer = BitConverter.GetBytes(fileLength);
+
+            //파일크기 송신
             socket.Send(buffer);
 
+            //파일이름 길이 송신
+            buffer = BitConverter.GetBytes(fileInfo.Name.Length);
+            socket.Send(buffer);
+
+            //파일이름 송신
+            byte[] nameBuffer = Encoding.UTF8.GetBytes(fileInfo.Name + '\x01');
+            MessageBox.Show("send : " + fileInfo.Name);
+            socket.Send(nameBuffer);
+
+            //파일 송신
             int count = fileLength / 1024 + 1;
             BinaryReader reader = new BinaryReader(fs);
             for (int i = 0; i < count; i++)
@@ -138,7 +156,6 @@ namespace TheDesktopBear
                 buffer = reader.ReadBytes(1024);
                 socket.Send(buffer);
             }
-            socket.Send(Encoding.UTF8.GetBytes(fileExtension));
 
             reader.Close();
             socket.Close();
@@ -273,73 +290,7 @@ namespace TheDesktopBear
         {
             mouse_control = !mouse_control;
         }
-
-        private void 파일수신하기ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Socket mySocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-            IPEndPoint point = new IPEndPoint(IPAddress.Parse(getLocalIP()), 7000);
-
-            mySocket.Bind(point);
-
-            mySocket.Listen(100);
-
-            mySocket = mySocket.Accept();
-
-            //파일 크기를 저장할 버퍼
-            byte[] buffer = new byte[4];
-
-            //클라이언트로부터 파일 크기 수신
-            mySocket.Receive(buffer);
-
-            //파일 크기를 정수로 변환, fileLength에 저장
-            int fileLength = BitConverter.ToInt32(buffer, 0);
-
-            //버퍼 크기 새로 지정
-            buffer = new byte[1024];
-
-            int totalLength = 0;
-
-            FileStream fileStr = new FileStream("123.txt", FileMode.Create, FileAccess.Write);
-
-            //받을 데이터를 파일에 쓰기 위해 BinaryWriter 객체 생성
-            BinaryWriter bnryWriter = new BinaryWriter(fileStr);
-
-            //받은 파일의 확장자를 저장할 변수
-            string extension;
-            int extensionIndex;
-
-            //받은 파일을 string으로 변환
-            string context;
-
-            //파일 수신
-            while (totalLength < fileLength)
-            {
-                //받을 데이터 길이 저장
-                int receiveLength = mySocket.Receive(buffer);
-
-                //context = Encoding.Default.GetString(buffer);
-                //if (context.Contains("extension"))
-                //{
-                //    extensionIndex = context.IndexOf("extension");
-                //    context = context.Substring(0, extensionIndex);
-                //    extension = context.Substring(extensionIndex);
-                //    extensionIndex = extension.IndexOf(".");
-                //    extension = extension.Substring(extensionIndex);
-                //    Console.WriteLine(context);
-                //    Console.WriteLine(extension);
-                //}
-
-                //받은 데이터를 fileStr에 씀
-                bnryWriter.Write(buffer, 0, receiveLength);
-
-                totalLength += receiveLength;
-            }
-            
-            bnryWriter.Close();
-            mySocket.Close();
-        }
-
+        
         public static void receive()
         {
             Socket mySocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -355,25 +306,50 @@ namespace TheDesktopBear
             //파일 크기를 저장할 버퍼
             byte[] buffer = new byte[4];
 
-            //클라이언트로부터 파일 크기 수신
+            //파일 크기 수신
             mySocket.Receive(buffer);
 
             //파일 크기를 정수로 변환, fileLength에 저장
             int fileLength = BitConverter.ToInt32(buffer, 0);
 
+            
+
+            //파일 이름 길이 수신
+            mySocket.Receive(buffer);
+            int fileNameLength = BitConverter.ToInt32(buffer, 0);
+
+            buffer = new byte[1024*4];
+            //파일 이름 수신
+            mySocket.Receive(buffer);
+
+            string fileName = Encoding.UTF8.GetString(buffer);
+            fileName = fileName.Split('\x01')[0];
+            MessageBox.Show(fileName);
+            string filePath = "";
+
+            
+            
+            if(MessageBox.Show("파일을 수신하시겠습니까?", "파일수신", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                filePath = getPathByDialog();
+            }
+            else
+            {
+
+            }
+
+            Console.WriteLine("fileName : " + fileName);
+            Console.WriteLine("filePath : " + filePath);
+            Console.WriteLine("fullPath : " + filePath + "\\" + fileName);
+
             //버퍼 크기 새로 지정
             buffer = new byte[1024];
 
             int totalLength = 0;
-
-            FileStream fileStr = new FileStream("123.txt", FileMode.Create, FileAccess.Write);
+            FileStream fileStr = new FileStream(filePath + "\\" + fileName, FileMode.Create, FileAccess.Write);
 
             //받을 데이터를 파일에 쓰기 위해 BinaryWriter 객체 생성
             BinaryWriter bnryWriter = new BinaryWriter(fileStr);
-
-            //받은 파일의 확장자를 저장할 변수
-            string extension;
-            int extensionIndex;
 
             //받은 파일을 string으로 변환
             string context;
@@ -404,6 +380,13 @@ namespace TheDesktopBear
 
             bnryWriter.Close();
             mySocket.Close();
+        }
+
+        public static string getPathByDialog()
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.ShowDialog();
+            return folderBrowserDialog.SelectedPath;
         }
 
         #region 자신의 localIP 리턴함수

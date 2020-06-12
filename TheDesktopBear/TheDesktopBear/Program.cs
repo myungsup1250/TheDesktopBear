@@ -22,6 +22,7 @@ namespace TheDesktopBear
             t.Start();
 
             Thread receive = new Thread(new ThreadStart(Bear.receive));
+            receive.SetApartmentState(ApartmentState.STA);
             receive.Start();
             Application.Run(new Bear());
         }
