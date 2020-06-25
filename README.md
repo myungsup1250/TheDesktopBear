@@ -1,6 +1,6 @@
 # TheDesktopBear
 
-<img src="./TheDesktopBear/TheDesktopBear/resource/img/ETC/bear.png" width="10%" height="auto"> 
+<img src="./TheDesktopBear/TheDesktopBear/resource/img/bear.png" width="10%" height="auto"> 
 
 `TheDesktopBear.exe`
 
