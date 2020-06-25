@@ -1,10 +1,14 @@
 # TheDesktopBear
+
+## How to Excute
 <img src="./TheDesktopBear/TheDesktopBear/resource/img/bear.png" width="15%" height="auto"> 
 
 `TheDesktopBear.exe`
 
-## How to Excute
-TheDesktopBear\bin\Release\TheDesktopBear.exe 실행
+TheDesktopBear\bin\Release\TheDesktopBear.exe 경로를 실행합니다!
+
+## 최종발표영상
+<img src="./TheDesktopBear/TheDesktopBear/resource/img/ETC/polar_bear.jpg" height="auto"> 
 
 ## OverView
 이 프로젝트는 Window화면에서 돌아다니는 `곰`을 표현하였습니다.
@@ -30,6 +34,5 @@ TheDesktopBear\bin\Release\TheDesktopBear.exe 실행
 [이현빈](https://github.com/Phaskal)
 
 
-<img src="./TheDesktopBear/TheDesktopBear/resource/img/ETC/polar_bear_water.jpg" height="auto"> 
 
 
