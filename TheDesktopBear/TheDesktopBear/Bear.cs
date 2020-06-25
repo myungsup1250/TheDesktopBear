@@ -48,6 +48,7 @@ namespace TheDesktopBear
             this.AllowDrop = true;
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
+            
         }
         public Bear(int cnt) {
             InitializeComponent();
@@ -614,9 +615,15 @@ namespace TheDesktopBear
             if (name.Text == "0")
             {
                 recievemySocket.Close();
-
+                notifyBear.Visible = false;
                 Program.t.Abort();
             }
+        }
+
+        private void cmsNoti_Click(object sender, EventArgs e)
+        {
+            this.notifyBear.Visible = false;
+            Application.Exit();
         }
     }
 }

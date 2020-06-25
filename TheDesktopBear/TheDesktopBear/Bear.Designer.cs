@@ -40,11 +40,14 @@
             this.친구찾기FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitTimer = new System.Windows.Forms.Timer(this.components);
             this.MoveTimer = new System.Windows.Forms.Timer(this.components);
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyBear = new System.Windows.Forms.NotifyIcon(this.components);
             this.ExitTimeDisplay = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.Label();
+            this.CmsNotify = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsNoti = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Character)).BeginInit();
             this.TaskList.SuspendLayout();
+            this.CmsNotify.SuspendLayout();
             this.SuspendLayout();
             // 
             // Character
@@ -73,7 +76,7 @@
             this.광고AToolStripMenuItem,
             this.친구찾기FToolStripMenuItem});
             this.TaskList.Name = "TaskList";
-            this.TaskList.Size = new System.Drawing.Size(213, 176);
+            this.TaskList.Size = new System.Drawing.Size(213, 148);
             this.TaskList.TabStop = true;
             this.TaskList.Text = "C";
             // 
@@ -123,11 +126,12 @@
             // 
             this.MoveTimer.Tick += new System.EventHandler(this.MoveTimer_Tick);
             // 
-            // notifyIcon1
+            // notifyBear
             // 
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
+            this.notifyBear.ContextMenuStrip = this.CmsNotify;
+            this.notifyBear.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyBear.Icon")));
+            this.notifyBear.Text = "notifyIcon1";
+            this.notifyBear.Visible = true;
             // 
             // ExitTimeDisplay
             // 
@@ -154,6 +158,21 @@
             this.name.TabIndex = 1;
             this.name.Text = "0";
             // 
+            // CmsNotify
+            // 
+            this.CmsNotify.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CmsNotify.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsNoti});
+            this.CmsNotify.Name = "CmsNotify";
+            this.CmsNotify.Size = new System.Drawing.Size(128, 28);
+            // 
+            // cmsNoti
+            // 
+            this.cmsNoti.Name = "cmsNoti";
+            this.cmsNoti.Size = new System.Drawing.Size(127, 24);
+            this.cmsNoti.Text = "종료(&X)";
+            this.cmsNoti.Click += new System.EventHandler(this.cmsNoti_Click);
+            // 
             // Bear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -178,6 +197,7 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CharacterKeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.Character)).EndInit();
             this.TaskList.ResumeLayout(false);
+            this.CmsNotify.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,7 +208,7 @@
         private System.Windows.Forms.PictureBox Character;
         private System.Windows.Forms.Timer ExitTimer;
         private System.Windows.Forms.Timer MoveTimer;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.NotifyIcon notifyBear;
         private System.Windows.Forms.ContextMenuStrip TaskList;
         private System.Windows.Forms.ToolStripMenuItem 프로세스죽이기KToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStop;
@@ -198,5 +218,7 @@
         private System.Windows.Forms.ToolStripMenuItem 광고AToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 친구찾기FToolStripMenuItem;
         private System.Windows.Forms.Label name;
+        private System.Windows.Forms.ContextMenuStrip CmsNotify;
+        private System.Windows.Forms.ToolStripMenuItem cmsNoti;
     }
 }
