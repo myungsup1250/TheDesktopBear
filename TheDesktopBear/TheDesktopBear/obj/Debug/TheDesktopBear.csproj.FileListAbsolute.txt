@@ -89,3 +89,5 @@ C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj
 C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.CoreCompileInputs.cache
 C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.exe
 C:\Users\fddsg\Desktop\bear\new\TheDesktopBear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.pdb
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.FriendListForm.resources
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Debug\TheDesktopBear.csproj.CoreCompileInputs.cache

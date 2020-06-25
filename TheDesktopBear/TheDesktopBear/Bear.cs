@@ -284,6 +284,18 @@ namespace TheDesktopBear
         #endregion
 
         private void 멈추기SToolStripMenuItem_Click(object sender, EventArgs e)    {
+            if (MoveTimer.Enabled)
+            {
+                toolStop.Text = "움직이기(&S)";
+                MoveTimer.Stop();
+            }
+            else
+            {
+                toolStop.Text = "멈추기(&S)";
+                MoveTimer.Start();
+            }
+                
+
             if (dir != 4) dir = 4;
             else dir = 0;
         }
@@ -303,6 +315,10 @@ namespace TheDesktopBear
         private void 마우스따라가기MToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mouse_control = !mouse_control;
+            if (toolMouse.Text.Equals("마우스 가져가기(&M)"))
+                toolMouse.Text = "마우스 놓기(&M)";
+            else
+                toolMouse.Text = "마우스 가져가기(&M)";
         }
 
         public static void receive()
@@ -314,9 +330,14 @@ namespace TheDesktopBear
             recievemySocket.Bind(point);
 
             recievemySocket.Listen(100);
-
-            recievemySocket = recievemySocket.Accept();
-
+            try
+            {
+                recievemySocket = recievemySocket.Accept();
+            }
+            catch(Exception ex)
+            {
+                return;
+            }
             //파일 크기를 저장할 버퍼
             byte[] buffer = new byte[4];
 

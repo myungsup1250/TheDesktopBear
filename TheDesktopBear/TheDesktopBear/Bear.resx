@@ -123,17 +123,17 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Character.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABsAAAAoCAYAAAAPOoFWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAIASURBVFhHzZQ9SgNRFIUjLkCyAREUS7UxC1DsswtLswpb
-        t2BhYZnaSrAQxNbaTrAQsbIRnnOSOY8zN/f9mJGQA8e89+6958tMxhmEEFbm+Z+CxkcboeS2NakqGIKo
-        r/eXdjWX7kvApiUPU1CNcsCmvMaw3G2EesM0MAfDuhcMIrDkHAiqgkEIyqkEgpq2uiuDn+6vZ8FWOGdP
-        O+Kqac3DEPBwuRnOT7bC7WQwC7bGOeroywGrYJ+Pk1kgwvBpzXP0/QsMgSX3hkEIYODx/jC8Ts+isWct
-        B4L+DINPD4bRet4bpiBejcJ4VgOshiEQTxzDvfW/wPjEMdiaIPQtDcPgzngaRhdvHaA1QehDfwqYhClI
-        jWBr25MCZmE/3x8uEOaVWKM/9VJ2YWi0b3RYwQojAMYX5KcFLsAsCENqAvFOJMj26JwCszCsNQTmy3d0
-        uBvXWrdzSZiCEMK9hsEA0fGsvaXelyQwCdO1DtIKUus8zxZgGs5mrjWsZG+e+w6Mv4HeQtgLrbkym1cF
-        s9bfzKvDRdjzzV60wnSIBsg7V5jN68Dwj6pFBni3K2XOKAy5LozGngF6Dt9dbUfbGme8vAjjo28buFZA
-        yt4c951Hn0JBrUMegNY+m9FGL8KsLLBkDbdaCsZvnKq1owsqwiANtWG5mtX6wSAEpcJyNVWErcZh8AsG
-        3txsrNwO4QAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABsAAAAoCAYAAAAPOoFWAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAgBJREFUWEfNlD1KA1EUhSMuQLIBERRLtTELUOyzC0uzClu3YGFhmdpKsBDE1tpO
+        sBCxshGec5I5jzM39/2YkZADx7z37r3ny0zGGYQQVub5n4LGRxuh5LY1qSoYgqiv95d2NZfuS8CmJQ9T
+        UI1ywKa8xrDcbYR6wzQwB8O6FwwisOQcCKqCQQjKqQSCmra6K4Of7q9nwVY4Z0874qppzcMQ8HC5Gc5P
+        tsLtZDALtsY56ujLAatgn4+TWSDC8GnNc/T9CwyBJfeGQQhg4PH+MLxOz6KxZy0Hgv4Mg08PhtF63hum
+        IF6NwnhWA6yGIRBPHMO99b/A+MQx2Jog9C0Nw+DOeBpGF28doDVB6EN/CpiEKUiNYGvbkwJmYT/fHy4Q
+        5pVYoz/1UnZhaLRvdFjBCiMAxhfkpwUuwCwIQ2oC8U4kyPbonAKzMKw1BObLd3S4G9dat3NJmIIQwr2G
+        wQDR8ay9pd6XJDAJ07UO0gpS6zzPFmAazmauNaxkb577Doy/gd5C2AutuTKbVwWz1t/Mq8NF2PPNXrTC
+        dIgGyDtXmM3rwPCPqkUGeLcrZc4oDLkujMaeAXoO311tR9saZ7y8COOjbxu4VkDK3hz3nUefQkGtQx6A
+        1j6b0UYvwqwssGQNt1oKxm+cqrWjCyrCIA21Ybma1frBIASlwnI1VYStxmHwCwbe3Gys3A7hAAAAAElF
+        TkSuQmCC
 </value>
   </data>
   <metadata name="ExitTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
