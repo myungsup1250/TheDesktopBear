@@ -41,10 +41,12 @@
             this.ExitTimer = new System.Windows.Forms.Timer(this.components);
             this.MoveTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyBear = new System.Windows.Forms.NotifyIcon(this.components);
-            this.ExitTimeDisplay = new System.Windows.Forms.TextBox();
-            this.name = new System.Windows.Forms.Label();
             this.CmsNotify = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsNoti = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitTimeDisplay = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.Label();
+            this.howlingTImer = new System.Windows.Forms.Timer(this.components);
+            this.숨기기HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Character)).BeginInit();
             this.TaskList.SuspendLayout();
             this.CmsNotify.SuspendLayout();
@@ -74,9 +76,10 @@
             this.toolMouse,
             this.분신술CToolStripMenuItem,
             this.광고AToolStripMenuItem,
-            this.친구찾기FToolStripMenuItem});
+            this.친구찾기FToolStripMenuItem,
+            this.숨기기HToolStripMenuItem});
             this.TaskList.Name = "TaskList";
-            this.TaskList.Size = new System.Drawing.Size(213, 148);
+            this.TaskList.Size = new System.Drawing.Size(213, 172);
             this.TaskList.TabStop = true;
             this.TaskList.Text = "C";
             // 
@@ -132,6 +135,22 @@
             this.notifyBear.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyBear.Icon")));
             this.notifyBear.Text = "notifyIcon1";
             this.notifyBear.Visible = true;
+            this.notifyBear.DoubleClick += new System.EventHandler(this.notifyBear_DoubleClick);
+            // 
+            // CmsNotify
+            // 
+            this.CmsNotify.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CmsNotify.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsNoti});
+            this.CmsNotify.Name = "CmsNotify";
+            this.CmsNotify.Size = new System.Drawing.Size(128, 28);
+            // 
+            // cmsNoti
+            // 
+            this.cmsNoti.Name = "cmsNoti";
+            this.cmsNoti.Size = new System.Drawing.Size(127, 24);
+            this.cmsNoti.Text = "종료(&X)";
+            this.cmsNoti.Click += new System.EventHandler(this.cmsNoti_Click);
             // 
             // ExitTimeDisplay
             // 
@@ -158,20 +177,12 @@
             this.name.TabIndex = 1;
             this.name.Text = "0";
             // 
-            // CmsNotify
+            // 숨기기HToolStripMenuItem
             // 
-            this.CmsNotify.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.CmsNotify.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmsNoti});
-            this.CmsNotify.Name = "CmsNotify";
-            this.CmsNotify.Size = new System.Drawing.Size(128, 28);
-            // 
-            // cmsNoti
-            // 
-            this.cmsNoti.Name = "cmsNoti";
-            this.cmsNoti.Size = new System.Drawing.Size(127, 24);
-            this.cmsNoti.Text = "종료(&X)";
-            this.cmsNoti.Click += new System.EventHandler(this.cmsNoti_Click);
+            this.숨기기HToolStripMenuItem.Name = "숨기기HToolStripMenuItem";
+            this.숨기기HToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
+            this.숨기기HToolStripMenuItem.Text = "숨기기(&H)";
+            this.숨기기HToolStripMenuItem.Click += new System.EventHandler(this.숨기기HToolStripMenuItem_Click);
             // 
             // Bear
             // 
@@ -220,5 +231,7 @@
         private System.Windows.Forms.Label name;
         private System.Windows.Forms.ContextMenuStrip CmsNotify;
         private System.Windows.Forms.ToolStripMenuItem cmsNoti;
+        private System.Windows.Forms.Timer howlingTImer;
+        private System.Windows.Forms.ToolStripMenuItem 숨기기HToolStripMenuItem;
     }
 }

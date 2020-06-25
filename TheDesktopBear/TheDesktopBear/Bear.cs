@@ -625,5 +625,16 @@ namespace TheDesktopBear
             this.notifyBear.Visible = false;
             Application.Exit();
         }
+
+        private void 숨기기HToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+        }
+
+        private void notifyBear_DoubleClick(object sender, EventArgs e)
+        {
+            this.Visible = true;
+
+        }
     }
 }
