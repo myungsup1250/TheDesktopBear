@@ -1,7 +1,5 @@
 # TheDesktopBear
-
 <img src="./TheDesktopBear/TheDesktopBear/resource/img/bear.png" width="10%" height="auto"> 
-
 `TheDesktopBear.exe`
 
 ## How to Excute
