@@ -1,0 +1,12 @@
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\bin\Release\TheDesktopBear.exe.config
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\bin\Release\TheDesktopBear.exe
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\bin\Release\TheDesktopBear.pdb
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Release\TheDesktopBear.csprojAssemblyReference.cache
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Release\TheDesktopBear.Bear.resources
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Release\TheDesktopBear.FileSender.resources
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Release\TheDesktopBear.FriendListForm.resources
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Release\TheDesktopBear.Properties.Resources.resources
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Release\TheDesktopBear.csproj.GenerateResource.cache
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Release\TheDesktopBear.csproj.CoreCompileInputs.cache
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Release\TheDesktopBear.exe
+C:\Users\souvenir\Desktop\git\The_Desktop_Bear\TheDesktopBear\TheDesktopBear\obj\Release\TheDesktopBear.pdb
