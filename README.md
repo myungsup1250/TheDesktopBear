@@ -20,7 +20,7 @@ TheDesktopBear\bin\Release\TheDesktopBear.exe 경로를 실행합니다!
 ## 개발환경
 - Windows 10
 - Visual Studio 2019
-- C# winform
+- C# .net Framework
   
 
 
