@@ -33,6 +33,7 @@
             this.Character = new System.Windows.Forms.PictureBox();
             this.TaskList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.프로세스죽이기KToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.숨기기HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStop = new System.Windows.Forms.ToolStripMenuItem();
             this.toolMouse = new System.Windows.Forms.ToolStripMenuItem();
             this.분신술CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,8 +46,6 @@
             this.cmsNoti = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitTimeDisplay = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.Label();
-            this.howlingTImer = new System.Windows.Forms.Timer(this.components);
-            this.숨기기HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Character)).BeginInit();
             this.TaskList.SuspendLayout();
             this.CmsNotify.SuspendLayout();
@@ -72,12 +71,12 @@
             this.TaskList.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.TaskList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.프로세스죽이기KToolStripMenuItem,
+            this.숨기기HToolStripMenuItem,
             this.toolStop,
             this.toolMouse,
             this.분신술CToolStripMenuItem,
             this.광고AToolStripMenuItem,
-            this.친구찾기FToolStripMenuItem,
-            this.숨기기HToolStripMenuItem});
+            this.친구찾기FToolStripMenuItem});
             this.TaskList.Name = "TaskList";
             this.TaskList.Size = new System.Drawing.Size(213, 172);
             this.TaskList.TabStop = true;
@@ -89,6 +88,13 @@
             this.프로세스죽이기KToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
             this.프로세스죽이기KToolStripMenuItem.Text = "Bear Kill(&K)";
             this.프로세스죽이기KToolStripMenuItem.Click += new System.EventHandler(this.프로세스죽이기KToolStripMenuItem_Click);
+            // 
+            // 숨기기HToolStripMenuItem
+            // 
+            this.숨기기HToolStripMenuItem.Name = "숨기기HToolStripMenuItem";
+            this.숨기기HToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
+            this.숨기기HToolStripMenuItem.Text = "숨기기(&H)";
+            this.숨기기HToolStripMenuItem.Click += new System.EventHandler(this.숨기기HToolStripMenuItem_Click);
             // 
             // toolStop
             // 
@@ -177,13 +183,6 @@
             this.name.TabIndex = 1;
             this.name.Text = "0";
             // 
-            // 숨기기HToolStripMenuItem
-            // 
-            this.숨기기HToolStripMenuItem.Name = "숨기기HToolStripMenuItem";
-            this.숨기기HToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
-            this.숨기기HToolStripMenuItem.Text = "숨기기(&H)";
-            this.숨기기HToolStripMenuItem.Click += new System.EventHandler(this.숨기기HToolStripMenuItem_Click);
-            // 
             // Bear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -231,7 +230,6 @@
         private System.Windows.Forms.Label name;
         private System.Windows.Forms.ContextMenuStrip CmsNotify;
         private System.Windows.Forms.ToolStripMenuItem cmsNoti;
-        private System.Windows.Forms.Timer howlingTImer;
         private System.Windows.Forms.ToolStripMenuItem 숨기기HToolStripMenuItem;
     }
 }

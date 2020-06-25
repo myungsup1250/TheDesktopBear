@@ -36,7 +36,7 @@ namespace TheDesktopBear
 
         private int move_num = -1; //이미지갱신을 위한 tick
         private int dir = (int)BearMove.FRONT; //방향
-
+        Thread hling;
 
         public Bear()
         {
@@ -44,7 +44,6 @@ namespace TheDesktopBear
             LoadImage();
             MoveTimer.Interval = 500;
             MoveTimer.Start();
-
             this.AllowDrop = true;
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
@@ -55,7 +54,6 @@ namespace TheDesktopBear
             LoadImage();
             MoveTimer.Interval = 500;
             MoveTimer.Start();
-
             this.AllowDrop = true;
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
@@ -229,20 +227,8 @@ namespace TheDesktopBear
         #region 행동
         private void CharacterKeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode == Keys.Escape)
-            {
                 ExitTimer.Start();
-            }
-            else if (e.KeyCode == Keys.A)// 울음소리
-            {
-                Thread t = new Thread(new ThreadStart(Howling));
-                t.Start();
-            }
-            else if (e.KeyCode == Keys.S)// 창 최소화
-            {
-                this.WindowState = FormWindowState.Minimized;
-            }
         }
         void Howling()
         {
@@ -288,6 +274,18 @@ namespace TheDesktopBear
             if (MoveTimer.Enabled)
             {
                 toolStop.Text = "움직이기(&S)";
+                if (hling == null)
+                {
+                    hling = new Thread(new ThreadStart(Howling));
+                    hling.Start();
+                }
+                else
+                {
+                    hling.Abort();
+                    hling = new Thread(new ThreadStart(Howling));
+                    hling.Start();
+                }
+                
                 MoveTimer.Stop();
             }
             else
@@ -634,7 +632,7 @@ namespace TheDesktopBear
         private void notifyBear_DoubleClick(object sender, EventArgs e)
         {
             this.Visible = true;
-
         }
+
     }
 }
