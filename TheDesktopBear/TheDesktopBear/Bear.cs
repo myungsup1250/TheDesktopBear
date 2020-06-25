@@ -314,10 +314,7 @@ namespace TheDesktopBear
         private void 마우스따라가기MToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mouse_control = !mouse_control;
-            if (toolMouse.Text.Equals("마우스 가져가기(&M)"))
-                toolMouse.Text = "마우스 놓기(&M)";
-            else
-                toolMouse.Text = "마우스 가져가기(&M)";
+            toolMouse.Checked = !toolMouse.Checked;
         }
 
         public static void receive()
