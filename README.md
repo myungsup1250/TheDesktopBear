@@ -20,7 +20,7 @@ TheDesktopBear\bin\Release\TheDesktopBear.exe 경로를 실행합니다!
 - C# .net Framework
   
 ## 최종발표영상
-<img src="./TheDesktopBear/TheDesktopBear/resource/img/ETC/polar_bear.jpg" height="auto"> 
+[![Video Label](./TheDesktopBear/TheDesktopBear/resource/img/ETC/polar_bear.jpg)](https://youtu.be/g8MVA0Ogstc)
 
 ## How to Setting
 [Readme](./how_to_setting/Readme.md)
