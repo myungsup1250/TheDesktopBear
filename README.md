@@ -7,9 +7,6 @@
 
 TheDesktopBear\bin\Release\TheDesktopBear.exe 경로를 실행합니다!
 
-## 최종발표영상
-<img src="./TheDesktopBear/TheDesktopBear/resource/img/ETC/polar_bear.jpg" height="auto"> 
-
 ## OverView
 이 프로젝트는 Window화면에서 돌아다니는 `곰`을 표현하였습니다.
 
@@ -22,7 +19,8 @@ TheDesktopBear\bin\Release\TheDesktopBear.exe 경로를 실행합니다!
 - Visual Studio 2019
 - C# .net Framework
   
-
+## 최종발표영상
+<img src="./TheDesktopBear/TheDesktopBear/resource/img/ETC/polar_bear.jpg" height="auto"> 
 
 ## How to Setting
 [Readme](./how_to_setting/Readme.md)
